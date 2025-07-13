@@ -8,7 +8,7 @@ import matplotlib.font_manager as fm
 
 st.set_page_config(layout="wide")
 
-st.title('메인페이지')
+st.title('사업소 소개')
 
 def load_data():
     df = pd.read_csv("기상청_alldata.csv")
