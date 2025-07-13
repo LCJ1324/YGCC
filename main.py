@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 from PIL import Image
+import matplotlib.font_manager as fm
 
 st.set_page_config(layout="wide")
 
@@ -28,6 +29,11 @@ df_sancheonpo = df[df['사업소'] == '삼천포'].reset_index(drop = True)
 df_yeosu = df[df['사업소'] == '여수'].reset_index(drop = True)
 df_yeongdong = df[df['사업소'] == '영동'].reset_index(drop = True)
 df_yeongheung = df[df['사업소'] == '영흥'].reset_index(drop = True)
+
+font_path = '/tmp/NanumGothic.ttf'
+fm.fontManager.addfont(font_path)
+plt.rc('font', family='NanumGothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 col1, col2 = st.columns([2,3])
 

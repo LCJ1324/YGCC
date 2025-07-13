@@ -8,6 +8,7 @@ from xgboost import XGBRegressor
 from lightgbm import LGBMRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+import matplotlib.font_manager as fm
 
 st.set_page_config(layout="wide")
 
@@ -33,6 +34,11 @@ df['이용률_MW'] = df['발전량(MWh)'] / (df['용량(MW)'] + 1e-5)
 df['유량당_발전량'] = df['발전량(MWh)'] / df['유량']
 df['단위용량당_발전량'] = df['발전량(MWh)'] / df['용량(MW)']
 df['이용률_MW'] = df['발전량(MWh)'] / (df['용량(MW)'] + 1e-5)
+
+font_path = '/tmp/NanumGothic.ttf'
+fm.fontManager.addfont(font_path)
+plt.rc('font', family='NanumGothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 with st.sidebar :
     side_col1, side_col2 = st.columns(2)
