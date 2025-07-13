@@ -100,24 +100,6 @@ score['사업소'] = score.index.str.split('(').str[0]
 score['color'] = score['사업소'].map(color_map)
 score = score.sort_values(by = 'score', ascending = False)
 
-with st.container(border = True) :
-    st.subheader('◼ NOX 예측 모델 정확성')
-    fig, ax = plt.subplots(figsize=(16, 2))
-    sns.barplot(
-        data=score,
-        x=score.index,
-        y='score',
-        palette=score['color'].to_dict(),
-        ax=ax
-    )
-    plt.xticks(rotation=45, ha='right')
-    plt.xlabel("")
-    plt.ylabel("")
-    plt.grid(axis='y', color='grey', alpha=0.5, linestyle='--')
-    for s in ['top', 'bottom', 'left', 'right']:
-        ax.spines[s].set_visible(False)
-    st.pyplot(fig)
-
 col1, col2 = st.columns(2, border=True)
 
 new_df.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -225,3 +207,20 @@ with col2 :
         plt.gca().spines[s].set_visible(False)
     st.pyplot(plt)
     
+with st.container(border = True) :
+    st.subheader('◼ NOX 예측 모델 정확성')
+    fig, ax = plt.subplots(figsize=(16, 2))
+    sns.barplot(
+        data=score,
+        x=score.index,
+        y='score',
+        palette=score['color'].to_dict(),
+        ax=ax
+    )
+    plt.xticks(rotation=45, ha='right')
+    plt.xlabel("")
+    plt.ylabel("")
+    plt.grid(axis='y', color='grey', alpha=0.5, linestyle='--')
+    for s in ['top', 'bottom', 'left', 'right']:
+        ax.spines[s].set_visible(False)
+    st.pyplot(fig)
