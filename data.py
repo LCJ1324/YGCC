@@ -6,7 +6,7 @@ import matplotlib.font_manager as fm
 
 st.set_page_config(layout="wide")
 
-st.title('데이터 시각화')
+st.title('사업소별 데이터')
 
 def load_data():
     df = pd.read_csv("기상청_alldata.csv")
