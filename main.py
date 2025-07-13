@@ -30,7 +30,7 @@ df_yeosu = df[df['사업소'] == '여수'].reset_index(drop = True)
 df_yeongdong = df[df['사업소'] == '영동'].reset_index(drop = True)
 df_yeongheung = df[df['사업소'] == '영흥'].reset_index(drop = True)
 
-font_path = '/tmp/NanumGothic.ttf'
+font_path = 'NanumGothic.ttf'
 fm.fontManager.addfont(font_path)
 plt.rc('font', family='NanumGothic')
 plt.rcParams['axes.unicode_minus'] = False

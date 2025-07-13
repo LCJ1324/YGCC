@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.font_manager as fm
 
 st.set_page_config(layout="wide")
 
@@ -21,6 +22,11 @@ def parse_date_safe(x):
 
 df['일자'] = df['일자'].apply(parse_date_safe)
 df['연도'] = df['일자'].dt.year
+
+font_path = 'NanumGothic.ttf'
+fm.fontManager.addfont(font_path)
+plt.rc('font', family='NanumGothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 with st.sidebar :
     side_col1, side_col2 = st.columns(2)
